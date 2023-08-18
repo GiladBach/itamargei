@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Response Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Response</h1>
+        <p>You entered: {{ user_input }}</p>
+        <p>Date: {{ date_input }}</p>
+    </div>
+</body>
+</html>
