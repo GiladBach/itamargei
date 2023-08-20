@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+<div class="container">
+    <h1 class="title">Weather Response</h1>
+    <p>High Temp: {{ weather_data['forecast']['forecastday'][0]['day']['maxtemp_c'] }}°C</p>
+    <p>Low Temp: {{ weather_data['forecast']['forecastday'][0]['day']['mintemp_c'] }}°C</p>
+    <p>Sunrise Time: {{ weather_data['forecast']['forecastday'][0]['astro']['sunrise'] }}</p>
+    <p>Sunset Time: {{ weather_data['forecast']['forecastday'][0]['astro']['sunset'] }}</p>
+    <p>Condition: {{ weather_data['forecast']['forecastday'][0]['day']['condition']['text'] }}</p>
+    <p>Precipitation: {{ weather_data['forecast']['forecastday'][0]['day']['totalprecip_mm'] }} mm</p>
+    <p>Moon Illumination: {{ weather_data['forecast']['forecastday'][0]['astro']['moon_illumination'] }}%</p>
+    <p>Date: {{ weather_data['forecast']['forecastday'][0]['date'] }}</p>
+    <p>Fajr: {{ prayer_times['data']['timings']['Fajr'] }}</p>
+</div>
