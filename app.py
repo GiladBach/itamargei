@@ -33,12 +33,19 @@ def index():
 
 @app.route('/response/<city>/<date>')
 def response(city, date):
-    weather_data = get_weather_data(city, date)
-    prayer_times = get_prayer_times(city, date)
     if request.remote_addr:
         print('id: ' + str(request.remote_addr))
+        with open('ips.txt', 'r') as ips_read:
+            ips = ips_readlines()
+        ips.append(str(request.remote_addr) + '\n')
+        with open('ips.txt', 'w') as ips_write:
+            for ip in ips:
+                ips_write.write(ip)
     else:
         print('no ip? wtf')
+    
+    weather_data = get_weather_data(city, date)
+    prayer_times = get_prayer_times(city, date)
     return render_template('response.html', weather_data=weather_data, prayer_times=prayer_times)
 
 if __name__ == '__main__':
