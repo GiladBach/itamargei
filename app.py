@@ -35,12 +35,6 @@ def index():
 def response(city, date):
     if request.remote_addr:
         print('id: ' + str(request.remote_addr))
-        with open('ips.txt', 'r') as ips_read:
-            ips = ips_readlines()
-        ips.append(str(request.remote_addr) + '\n')
-        with open('ips.txt', 'w') as ips_write:
-            for ip in ips:
-                ips_write.write(ip)
     else:
         print('no ip? wtf')
     
