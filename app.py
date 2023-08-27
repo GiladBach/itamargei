@@ -35,6 +35,10 @@ def index():
 def response(city, date):
     weather_data = get_weather_data(city, date)
     prayer_times = get_prayer_times(city, date)
+    if request.remote_addr:
+        print(request.remote_addr)
+    else:
+        print('no ip? wtf')
     return render_template('response.html', weather_data=weather_data, prayer_times=prayer_times)
 
 if __name__ == '__main__':
