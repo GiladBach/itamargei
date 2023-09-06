@@ -1,7 +1,7 @@
 import requests
 from flask import Flask, render_template, request, redirect, url_for
 from consts import API_KEY as api_key
-from datetime import datetime
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
@@ -39,7 +39,7 @@ def response(city, date):
     
     weather_data = get_weather_data(city, date)
     prayer_times = get_prayer_times(city, date)
-    formatted_datetime = datetime.now().strftime('%d/%m/%Y %H:%M')
+    formatted_datetime = (datetime.utcnow() + timedelta(hours=3)).strftime('%d/%m/%Y %H:%M')
     required_data = {
         'Time': formatted_datetime,
         'High': weather_data['forecast']['forecastday'][0]['day']['maxtemp_c'],
