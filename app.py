@@ -14,7 +14,7 @@ def get_weather_data(city, date):
 
 #gets the prayer times
 def get_prayer_times(city, date):
-    base_url = f'http://api.aladhan.com/v1/timingsByCity?city={city}&country=CountryName&date={date}&method=2'
+    base_url = f'http://api.aladhan.com/v1/timingsByCity?city={city}&country=CountryName&date={date}&method=1'
     response = requests.get(base_url)
     data = response.json()
     return data
